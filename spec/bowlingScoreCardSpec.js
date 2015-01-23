@@ -1,4 +1,4 @@
-describe('Bowling', function(){
-  var
+describe('BowlingScorecard', function(){
+  var scorecard; 
 
 });
