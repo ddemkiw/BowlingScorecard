@@ -8,15 +8,12 @@ describe('BowlingScorecard', function(){
   describe('by default ', function(){
 
     it('it has ten frames',function(){
-      expect(scorecard.frames).toEqual(10)
+      expect(scorecard.frames).toEqual(10);
     });
 
     it('it has a player', function(){
-      expect(scorecard.player).toEqual(1)
+      expect(scorecard.player).toEqual(1);
     });
-
-    it()
-
   });
-
 });
+
