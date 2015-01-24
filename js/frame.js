@@ -1,5 +1,3 @@
-
-
 var Frame = function(scorecard){
   this.pins = 10;
   this.throws = 0;
