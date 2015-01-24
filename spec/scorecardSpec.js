@@ -1,10 +1,12 @@
 describe('Scorecard', function(){
   var scorecard; 
   var frame;
+  var frame2;
 
   beforeEach(function(){
     scorecard = new Scorecard();
     frame = new Frame;
+    frame2 = new Frame;
   });
 
   describe('by default ', function(){
@@ -39,6 +41,22 @@ describe('Scorecard', function(){
       expect(scorecard.bonus).toEqual(0);
       scorecard.bonusRound(2);
       expect(scorecard.bonus).toEqual(2);
+    });
+
+    it('can calculate a total score',function(){
+      frame.score = 10;
+      frame2.score = 5;
+      scorecard.frames = [frame, frame2];
+      scorecard.tallyScore();
+      expect(scorecard.totalScore).toEqual(15);
+    });
+
+    it('can calculate a total score',function(){
+      frame.score = 20;
+      frame2.score = 2;
+      scorecard.frames = [frame, frame2];
+      scorecard.tallyScore();
+      expect(scorecard.totalScore).toEqual(22);
     });
   });
 
