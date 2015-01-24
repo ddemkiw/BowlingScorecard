@@ -1,8 +1,7 @@
 var BowlingScorecard = function() {
   this.frames = [new Frame(this)];
   this.player = 1;
-  this.spareBonus = false;
-  this.strikeBonus = false;
+  this.bonus = 0;
   this.gameOver = false;
 };
 
@@ -13,12 +12,8 @@ BowlingScorecard.prototype.nextFrame = function() {
   this.checkWin();
 };
 
-BowlingScorecard.prototype.spareBonusRound = function() {
-  this.spareBonus = true;
-};
-
-BowlingScorecard.prototype.strikeBonusRound = function() {
-  this.strikeBonus = true;
+BowlingScorecard.prototype.bonusRound = function(number) {
+  this.bonus = number;
 };
 
 BowlingScorecard.prototype.checkWin = function() {

@@ -17,12 +17,8 @@ describe('BowlingScorecard', function(){
       expect(scorecard.player).toEqual(1);
     });
 
-    it('its spare bonus is set to false', function(){
-      expect(scorecard.spareBonus).toBe(false)
-    });
-
-     it('its strike bonus is set to false', function(){
-      expect(scorecard.strikeBonus).toBe(false)
+    it('its spare bonus is set to 0', function(){
+      expect(scorecard.bonus).toEqual(0)
     });
   });
 
@@ -33,10 +29,16 @@ describe('BowlingScorecard', function(){
       expect(scorecard.frames.length).toEqual(2)
     });
 
-    it('can register a bonus round', function(){
-      expect(scorecard.spareBonus).toBe(false);
-      scorecard.spareBonusRound();
-      expect(scorecard.spareBonus).toBe(true);
+    it('can register a spare bonus round with a value of 1', function(){
+      expect(scorecard.bonus).toEqual(0);
+      scorecard.bonusRound(1);
+      expect(scorecard.bonus).toEqual(1);
+    });
+
+    it('can register a strike bonus round with a value of 2', function(){
+      expect(scorecard.bonus).toEqual(0);
+      scorecard.bonusRound(2);
+      expect(scorecard.bonus).toEqual(2);
     });
   });
 
