@@ -6,7 +6,6 @@ describe('Frame', function(){
   beforeEach(function(){
     scorecard = new Scorecard();
     frame = new Frame(scorecard);
-    
   });
 
   describe('can keep track of pins', function(){
@@ -53,6 +52,35 @@ describe('Frame', function(){
         expect(frame.openFrame).toBe(false)
       });
     }); 
+
+
+    describe('it can keep track of score',function(){
+
+        it('starts with a score of 0',function(){
+          expect(frame.score).toEqual(0)
+        });
+
+        it('during a regular round', function(){
+          frame.knockdown(3);
+          frame.knockdown(2);
+          expect(frame.score).toEqual(5);
+        });
+
+        it('during a single bonus round',function(){
+          frame.scorecard.bonus = 1; 
+          frame.knockdown(2);
+          frame.knockdown(3);
+          expect(frame.score).toEqual(7);
+        });
+
+         it('during a double bonus round',function(){
+          frame.scorecard.bonus = 2; 
+          frame.knockdown(2);
+          frame.knockdown(3);
+          expect(frame.score).toEqual(10);
+        });
+
+    });
 
 
     describe('during game play', function(){
