@@ -1,4 +1,4 @@
-var BowlingScorecard = function() {
+var Scorecard = function() {
   this.frames = [new Frame(this)];
   this.player = 1;
   this.bonus = 0;
@@ -6,17 +6,17 @@ var BowlingScorecard = function() {
 };
 
 
-BowlingScorecard.prototype.nextFrame = function() {
+Scorecard.prototype.nextFrame = function() {
   var frame = new Frame(this);
   this.frames.push(frame)
   this.checkWin();
 };
 
-BowlingScorecard.prototype.bonusRound = function(number) {
+Scorecard.prototype.bonusRound = function(number) {
   this.bonus = number;
 };
 
-BowlingScorecard.prototype.checkWin = function() {
+Scorecard.prototype.checkWin = function() {
   if(this.frames.length === 10){this.gameOver = true}
 };
 

@@ -4,7 +4,7 @@ describe('Frame', function(){
      var frame;
 
   beforeEach(function(){
-    scorecard = new BowlingScorecard();
+    scorecard = new Scorecard();
     frame = new Frame(scorecard);
     
   });

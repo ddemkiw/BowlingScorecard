@@ -1,9 +1,9 @@
-describe('BowlingScorecard', function(){
+describe('Scorecard', function(){
   var scorecard; 
   var frame;
 
   beforeEach(function(){
-    scorecard = new BowlingScorecard();
+    scorecard = new Scorecard();
     frame = new Frame;
   });
 
