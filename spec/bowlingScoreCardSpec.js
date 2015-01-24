@@ -17,10 +17,15 @@ describe('BowlingScorecard', function(){
       expect(scorecard.player).toEqual(1);
     });
 
-    it('its bonus is set to false', function(){
-      expect(scorecard.bonus).toBe(false)
+    it('its spare bonus is set to false', function(){
+      expect(scorecard.spareBonus).toBe(false)
+    });
+
+     it('its strike bonus is set to false', function(){
+      expect(scorecard.strikeBonus).toBe(false)
     });
   });
+
   describe('during a game',function(){
 
     it('can move to the next frame', function(){
@@ -29,22 +34,27 @@ describe('BowlingScorecard', function(){
     });
 
     it('can register a bonus round', function(){
-      expect(scorecard.bonus).toBe(false);
-      scorecard.bonusRound();
-      expect(scorecard.bonus).toBe(true);
+      expect(scorecard.spareBonus).toBe(false);
+      scorecard.spareBonusRound();
+      expect(scorecard.spareBonus).toBe(true);
     });
   });
 
   describe('finish game', function(){
 
     it('it is not over right away', function(){
-      expect(scorecard.gameOver).toBe(false)
+      expect(scorecard.gameOver).toBe(false);
     });
 
-    it('it is finished after 10 frames')
-      9.times(scorecard.nextFrame());
+    it('it is finished after 10 frames', function(){
+      var times = 8;
+      for(var i=0; i < times; i++){
+        scorecard.nextFrame();
+      }
+      expect(scorecard.gameOver).toBe(false);
+      scorecard.nextFrame();
       expect(scorecard.gameOver).toBe(true)
+    });
   });
-
 });
 

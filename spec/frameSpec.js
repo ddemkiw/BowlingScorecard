@@ -38,16 +38,8 @@ describe('Frame', function(){
         frame.throw();
         expect(frame.openFrame).toBe(false)
       });
-
-      it('will maxout at 3 throws during bonus play', function(){
-        scorecard.bonusRound();
-        frame.throw();
-        frame.throw();
-        expect(frame.openFrame).toBe(true);
-        frame.throw();
-        expect(frame.openFrame).toBe(false);
-      });
     }); 
+
 
     describe('during game play', function(){
 
@@ -70,14 +62,24 @@ describe('Frame', function(){
  
     it('should give bonus round',function(){
       frame.strike();
-      expect(scorecard.bonus).toBe(true)
+      expect(scorecard.strikeBonus).toBe(true)
      });
 
     it('should knockdown all pins', function(){
       frame.strike();
       expect(frame.pins).toEqual(0)
     });
+  });
 
+    describe('in tenth round during bonus play', function(){
 
+ // it('will maxout at 3 throws during bonus play', function(){
+      //   scorecard.bonusRound();
+      //   frame.throw();
+      //   frame.throw();
+      //   expect(frame.openFrame).toBe(true);
+      //   frame.throw();
+      //   expect(frame.openFrame).toBe(false);
+      // });
     });
   });

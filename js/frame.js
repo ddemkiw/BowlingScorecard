@@ -13,7 +13,7 @@ Frame.prototype.knockdown = function(knockedDownPins) {
 
 Frame.prototype.strike = function() {
   this.knockdown(10);
-  this.scorecard.bonusRound();
+  this.scorecard.strikeBonusRound();
   this.closeFrame();
 };
 
@@ -28,13 +28,15 @@ Frame.prototype.closeFrame = function() {
 };
 
 Frame.prototype.checkStatus = function() {
-  if((this.scorecard.bonus) && (this.throws === 3))
-    {
-      this.closeFrame()
-    } else if((!this.scorecard.bonus) && (this.throws === 2))
-    {
-      this.closeFrame()
-    }
+ if(this.throws === 2){this.closeFrame()}
+
+  // if((this.scorecard.bonus) && (this.throws === 3))
+  //   {
+  //     this.closeFrame()
+  //   } else if((!this.scorecard.bonus) && (this.throws === 2))
+  //   {
+  //     this.closeFrame()
+  //   }
 
 };
 
