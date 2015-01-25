@@ -13,7 +13,7 @@ Frame.prototype.knockdown = function(knockedDownPins) {
     calculatePins();
     calculateScore();
     this._strike();
-  }else if ((this.pins - knockedDownPins) === 0)
+  }else if ((self.pins === 5) && (knockedDownPins === 5))
   {
     calculatePins();
     calculateScore();
@@ -29,16 +29,16 @@ Frame.prototype.knockdown = function(knockedDownPins) {
     self.pins -= knockedDownPins;
   };
 
-   function calculateScore(){
+  function calculateScore(){
     if(self.scorecard.bonus > 0)
-    {
-      self.score += (knockedDownPins * 2);
-      self.scorecard.bonus -=1;
-    } else
-    {
-      self.score += knockedDownPins;
-    }
-  };
+      {
+        self.score += (knockedDownPins * 2);
+        self.scorecard.bonus -=1;
+      } else
+      {
+        self.score += knockedDownPins;
+      }
+    };
 
 };
 
