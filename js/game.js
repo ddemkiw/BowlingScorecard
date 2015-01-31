@@ -10,12 +10,15 @@ Game.prototype.roll = function(knockDownPins) {
   };
 
 Game.prototype.score = function() {
-  var sum = 0
+  var sum = 0;
   for (var i = 0, sum = 0; i < this.rolls.length; sum += this.rolls[i++]);
   this.totalScore = sum;
+};
 
-  function strike() {
-    var sum = 0
-    for (var i = 0, sum = 0; i < this.rolls.length; sum += this.rolls[i++]);
-  }
+Game.prototype.isStrike = function() {
+  return this.rolls[this.rollIndex -1] === 10;
+};
+
+Game.prototype.isSpair = function() {
+  return (this.rolls[this.rollIndex -2] + this.rolls[this.rollIndex - 1]) === 10;
 };
