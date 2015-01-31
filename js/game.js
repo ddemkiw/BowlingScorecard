@@ -1,19 +1,21 @@
 var Game = function(){
   this.rolls = [];
-  this.frame = 0;
+  this.rollIndex = 0;
   this.totalScore = 0; 
 };
 
 Game.prototype.roll = function(knockDownPins) {
-  var points = this.rolls[this.frame++] = knockDownPins;
-    return points
-};
+  this.rolls[this.rollIndex++] = knockDownPins;
+  this.score();
+  };
 
-Game.prototype.calculateScore = function() {
-  var score = 0;
-  var i = 0; 
-  var 
+Game.prototype.score = function() {
+  var sum = 0
+  for (var i = 0, sum = 0; i < this.rolls.length; sum += this.rolls[i++]);
+  this.totalScore = sum;
 
-  for (i = 0; i < scoringRolls; i++)
-  this.totalScore +=   
+  function strike() {
+    var sum = 0
+    for (var i = 0, sum = 0; i < this.rolls.length; sum += this.rolls[i++]);
+  }
 };
