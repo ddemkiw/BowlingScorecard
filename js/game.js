@@ -1,24 +1,20 @@
 var Game = function(){
   this.rolls = [];
-  this.rollIndex = 0;
+  this.round = this.rolls.length;
   this.totalScore = 0; 
 };
 
-Game.prototype.roll = function(knockDownPins) {
-  this.rolls[this.rollIndex++] = knockDownPins;
-  this.score();
-  };
-
-Game.prototype.score = function() {
-  var sum = 0;
-  for (var i = 0, sum = 0; i < this.rolls.length; sum += this.rolls[i++]);
-  this.totalScore = sum;
+Game.prototype.roll = function(pinsKnockedDown) {
+  this.rolls.push(pinsKnockedDown);
+  this.totalScore += pinsKnockedDown;
 };
 
-Game.prototype.isStrike = function() {
-  return this.rolls[this.rollIndex -1] === 10;
+
+
+Game.prototype.isStrike = function(round) {
+  return this.rolls[round] === 10;
 };
 
-Game.prototype.isSpair = function() {
-  return (this.rolls[this.rollIndex -2] + this.rolls[this.rollIndex - 1]) === 10;
+Game.prototype.isSpair = function(round) {
+  return (this.rolls[round] + this.rolls[round + 1]) === 10;
 };

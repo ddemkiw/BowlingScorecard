@@ -16,44 +16,35 @@ beforeEach(function() { game = new Game()});
     });
   });
 
-  describe('a game with no strikes and no spairs', function(){
+  describe('during game', function(){
 
-    it('should have a score of ten if you hit one pin every turn', function(){
+    it('the score should go up', function(){
+      game.roll(3);
+      expect(game.totalScore).toEqual(3);
+    });
+
+    it('should recognize a strike', function(){
+      game.roll(10);
+      expect(game.isStrike(0)).toBe(true);
+    });
+
+    it('should recognize a spair', function(){
+      game.roll(3);
+      game.roll(7);
+      game.roll(2);
+      expect(game.isSpair(0)).toBe(true)
+    });
+  });
+
+  describe('with no spairs or strikes', function(){
+
+    it('hitting 1 pin a turn should return a score of 20', function(){
       var i = 0;
-      for(i = 0; i < 10; i++){
+      for(i = 0; i < 20; i++){
          game.roll(1);
        };
-       expect(game.totalScore).toEqual(10)
+      console.log(game.rolls)
+      expect(game.totalScore).toEqual(20);
     });
-  });
-
-  describe('a game with strikes', function(){
-
-    it('recognizes a strike', function(){
-      game.roll(10);
-      expect(game.isStrike()).toBe(true);
-    });
-
-    // it('a game with only strikes should add up to 300', function(){
-    //   var i = 0;
-    //   for(i = 0; i < 10; i++){
-    //      game.roll(10);
-    //    };
-    //   expect(game.totalScore).toEqual(300)
-    // });
-  });
-
-
-  describe('a game with spairs', function(){
-
-    it('recognizes a spair', function(){
-      game.roll(5);
-      game.roll(5);
-      expect(game.isSpair()).toBe(true);
-    });
-
-  //   it('a game that only rolls 5s should have a score of 150', function(){
-
-  //   });
   });
 });
