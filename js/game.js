@@ -6,7 +6,12 @@ var Game = function(){
 
 Game.prototype.roll = function(pinsKnockedDown) {
   this.rolls.push(pinsKnockedDown);
-  this.totalScore += pinsKnockedDown;
+  this.score();
+};
+
+Game.prototype.score = function() {
+  for (var i = 0, sum = 0; i < this.rolls.length; sum += this.rolls[i++]);
+  return this.totalScore = sum
 };
 
 
