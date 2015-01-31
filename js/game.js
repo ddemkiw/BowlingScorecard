@@ -1,17 +1,32 @@
 var Game = function(){
   this.rolls = [];
-  this.round = this.rolls.length;
+  this.round = 0;
   this.totalScore = 0; 
 };
 
 Game.prototype.roll = function(pinsKnockedDown) {
   this.rolls.push(pinsKnockedDown);
-  this.score();
 };
 
 Game.prototype.score = function() {
-  for (var i = 0, sum = 0; i < this.rolls.length; sum += this.rolls[i++]);
-  return this.totalScore = sum
+  var sum = 0;
+  var i = 0;
+  var self = this;
+  
+  while (i < this.rolls.length){
+    if(self.isStrike(i)){
+      sum += self.rolls[i] + self.rolls[i+1] + self.rolls[i+2];
+      i++;
+    } else if (self.isSpair(i)){
+      sum += self.rolls[i] + self.rolls[i+2];
+      i++;
+    }else{
+      sum += self.rolls[i];
+      i++;
+    }
+  }
+  this.totalScore = Number(sum)
+  return this.totalScore
 };
 
 
