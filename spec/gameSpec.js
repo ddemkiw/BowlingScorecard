@@ -12,7 +12,7 @@ beforeEach(function() { game = new Game()});
     });
 
     it('should have 0 rolls', function(){
-      expect(game.rolls).toEqual([]);
+      expect(game.rolls).toEqual([ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]);
     });
   });
 
@@ -59,13 +59,13 @@ beforeEach(function() { game = new Game()});
       expect(game.totalScore).toEqual(28);
     });
 
-    it('for spairs rolling 5,5,3,2 should equal 18',function(){
+    it('for spairs rolling four 5s should equal 25',function(){
       game.roll(5);
       game.roll(5);
-      game.roll(3);
-      game.roll(2);
+      game.roll(5);
+      game.roll(5);
       game.score();
-      expect(game.totalScore).toEqual(18);
+      expect(game.totalScore).toEqual(25);
     });
 
     it('5 strikes in a row plus two gutter balls scores 120',function(){
@@ -74,8 +74,7 @@ beforeEach(function() { game = new Game()});
       game.roll(10);
       game.roll(10);
       game.roll(10);
-      game.roll(0);
-      game.roll(0);
+      console.log(game.rolls)
       game.score();
       expect(game.totalScore).toEqual(120);
     });
