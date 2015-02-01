@@ -6,7 +6,7 @@ var Game = function(){
 };
 
 Game.prototype.roll = function(pinsKnockedDown) {
-  return this.rolls[this.round++] = pinsKnockedDown; 
+  return this.rolls[this.round++] = Number(pinsKnockedDown); 
 };
 
 Game.prototype.score = function() {
@@ -27,7 +27,8 @@ Game.prototype.score = function() {
     }
   }
 
-  return this.totalScore = sum
+  return this.totalScore = sum;
+
 };
 
 Game.prototype.isStrike = function(round) {

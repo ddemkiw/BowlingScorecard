@@ -14,7 +14,6 @@ var setFrameLitseners = function(){
   while(i < numberOfFrames){
     $('#first-box'+ i).on('input',function(e){
       pushNewScore($(this));
-      $('#score'+ i).text(game.totalScore);
       });
     $('#second-box'+ i).on('input',function(e){
       pushNewScore($(this));
@@ -24,6 +23,8 @@ var setFrameLitseners = function(){
 };
 
 var pushNewScore = function(newScore){
+  var targetFrame 
+  
   if(isNaN(newScore.val())){
     if(newScore.val() === 'x'){
       game.roll(10);
@@ -34,9 +35,13 @@ var pushNewScore = function(newScore){
       (newScore).val("");
     }
   } else{
-    game.roll(newScore.val);
+    game.roll(newScore.val());
     game.score();
+    console.log(game.totalScore);
   } 
+
+targetFrame = Math.floor((game.round -1)/2);
+$("#score" + targetFrame).text(game.totalScore);
 
 };
   
