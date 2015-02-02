@@ -4,10 +4,13 @@
 
 ## Synopsis
 
-A small rock, paper, scissors sinatra app. 
+A small bowling scorecard app written in Javascript
 
+## Still to complete/refactor
 
-
+- [need to add final frame functionality]
+- [need to update totalScore functionality to update in real-time ]
+- 
 ## Technologies Used
 
 - Javascript
