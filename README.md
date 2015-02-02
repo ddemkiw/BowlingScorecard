@@ -1,6 +1,6 @@
 # BowlingScoreCard (Javascript)
 =======================
-![alt tag](https://github.com/ddemkiw/BowlingScorecard/blob/master/img/front-page.jpg)
+![alt tag](https://github.com/ddemkiw/BowlingScorecard/blob/master/img/front-page1.jpg)
 
 ## Synopsis
 
