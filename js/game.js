@@ -17,14 +17,12 @@ Game.prototype.score = function() {
   while (i < this.rolls.length){
     if(self.isStrike(i)){
       sum += self.rolls[i] + self.rolls[i+1] + self.rolls[i+2];
-      i++;
     } else if (self.isSpair(i)){
       sum += self.rolls[i] + self.rolls[i+2];
-      i++;
     }else{
       sum += self.rolls[i];
-      i++;
     }
+    i++;
   }
 
   return this.totalScore = sum;

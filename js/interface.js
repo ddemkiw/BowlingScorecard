@@ -29,7 +29,6 @@ var pushNewScore = function(newScore){
     if(newScore.val() === 'x'){
       game.roll(10);
       game.score();
-      console.log(game.totalScore)
     } else {
       alert("this is not a number");
       (newScore).val("");
@@ -37,7 +36,6 @@ var pushNewScore = function(newScore){
   } else{
     game.roll(newScore.val());
     game.score();
-    console.log(game.totalScore);
   } 
 
 targetFrame = Math.floor((game.round -1)/2);
