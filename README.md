@@ -16,7 +16,7 @@ A small bowling scorecard app written in Javascript
 
 ## Context
 
-Week 
+Week 5 challenge at Makers Academy 
 
 ## Still to complete/refactor
 
