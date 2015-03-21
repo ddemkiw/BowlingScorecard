@@ -23,5 +23,5 @@ Week 5 challenge at Makers Academy
 - need to add final frame functionality
 - need to update totalScore functionality to update in real-time
 
-##Relfections
+
 
