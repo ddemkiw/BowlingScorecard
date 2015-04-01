@@ -23,20 +23,11 @@ var setFrameLitseners = function(){
 };
 
 var pushNewScore = function(newScore){
-  var targetFrame 
-  
-  if(isNaN(newScore.val())){
-    if(newScore.val() === 'x'){
-      game.roll(10);
-      game.score();
-    } else {
-      alert("this is not a number");
-      (newScore).val("");
-    }
-  } else{
-    game.roll(newScore.val());
+  var targetFrame;
+  var roundNumber = newScore.id.split('box')[1];
+  var box = whichBox(newScore.id)  boxNumber
+    game.roll(roundNumber, box, newScore.val());
     game.score();
-  } 
 
 targetFrame = Math.floor((game.round -1)/2);
 $("#score" + targetFrame).text(game.totalScore);
@@ -62,6 +53,9 @@ var buildFrames = function(){
   }
 };
 
+var whichBox = function(id){ 
+  return id.indexof('first') === 0 ? 0 : 1
+};
 
 
 
