@@ -1,12 +1,15 @@
 var Game = function(){
-  this.rolls = [];
+  rolls = [];
   this.startingScore();
   this.round = 0;
   this.totalScore = 0; 
+  this.rounds = [];
 };
 
-Game.prototype.roll = function(pinsKnockedDown) {
-  return this.rolls[this.round++] = Number(pinsKnockedDown); 
+Game.prototype.roll = function(roll, pinsKnockedDown) {
+  var roundNumber = Math.ceil((roll + 1)/2);
+  var round = roll % 2 === 0 ? 'score1' : 'score2'
+  return this.rounds[roundNumber][round] = Number(pinsKnockedDown); 
 };
 
 Game.prototype.score = function() {
@@ -38,7 +41,10 @@ Game.prototype.isSpair = function(round) {
 };
 
 Game.prototype.startingScore = function() {
-  for(i=0; i< 21; i++){
-    this.rolls.push(0);
+  for(i=0; i< 10; i++){
+    this.rounds.push({
+      score1:0,
+      score2:0
+    });
   }
 };
