@@ -9,6 +9,8 @@ Game.prototype.roll = function(pinsKnockedDown) {
   return this.rolls[this.round++] = Number(pinsKnockedDown); 
 };
 
+//dafsdafsdf
+
 Game.prototype.score = function() {
   var sum = 0;
   var i = 0;
