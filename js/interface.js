@@ -2,7 +2,7 @@ console.log("Hi Demkiw!");
 
 var game = new Game();
 
-var numberOfFrames = 10;
+var numberOfFrames = 20;
 
 $(document).ready(function(){
   buildFrames();
