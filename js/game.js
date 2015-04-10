@@ -4,6 +4,7 @@ var Game = function (){
   this.startingScore();
 };
 
+
 Game.prototype.roll = function(roundNumber, rollNumber, pinsKnockedDown) {
   var round = this.rounds[roundNumber]; 
   
@@ -23,6 +24,10 @@ Game.prototype.score = function() {
   return this.totalScore;
 };
 
+Game.prototype._isStrike = function() {
+  for(i=0; i<10; this.rounds)
+};
+
 Game.prototype.startingScore = function() {
   var self = this; 
 
@@ -34,3 +39,5 @@ Game.prototype.startingScore = function() {
   }
   return this.rounds;
 };
+
+

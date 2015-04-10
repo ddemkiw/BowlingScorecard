@@ -17,16 +17,21 @@ describe('Game', function(){
 
     it('it can record score per round', function(){
       game.roll(0, 2, 3)
-      expect(game.rounds[0].score2).toEqual(3)
+      game.roll(0,2,3)
+      expect(game.score()).toEqual(6)
     });
 
-     it('it can record pins knocked down for an entire game', function(){
-      for(i=0; i<10; i++){
-        game.roll(i,1,1);
-        game.roll(i,2,1);
-      }
-      expect(game.score()).toEqual(20)
+  });
+
+  describe('during a round with a strike', function(){
+
+    it('it can record score per round', function(){
+      game.roll(0, 1, 10)
+      game.roll(1,1,2)
+      game.roll(1,2,2)
+      expect(game.score).toEqual(3)
     });
+
   });
 
 });
