@@ -59,7 +59,7 @@ var buildFrames = function(){
 };
 
 var whichBox = function(id){ 
-  return id.indexof('first') === 0 ? 0 : 1
+  return id.indexOf('first') === 0 ? 0 : 1
 };
 
 
