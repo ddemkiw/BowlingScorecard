@@ -24,13 +24,18 @@ var setFrameLitseners = function(){
 
 var pushNewScore = function(newScore){
   var targetFrame;
-  var roundNumber = newScore.id.split('box')[1];
-  var box = whichBox(newScore.id)  boxNumber
+  // I put this in very last minute! look up js string 'split' method
+  // we get the id from the input element, so we know which box we've got
+  var boxId = newScore.attr('id');
+  var roundNumber = boxId.split('box')[1];
+  var box = whichBox(boxId);
     game.roll(roundNumber, box, newScore.val());
-    game.score();
+    var totalScore = game.score();
+  // todo: it would be great to be able to update more than one score here!
+  // but for now, we just need the round number, and we can use the return value from game.score (var totalScore)
 
-targetFrame = Math.floor((game.round -1)/2);
-$("#score" + targetFrame).text(game.totalScore);
+targetFrame = roundNumber;
+$("#score" + targetFrame).text(totalScore);
 
 };
   
@@ -54,7 +59,7 @@ var buildFrames = function(){
 };
 
 var whichBox = function(id){ 
-  return id.indexof('first') === 0 ? 0 : 1
+  return id.indexOf('first') === 0 ? 0 : 1
 };
 
 
