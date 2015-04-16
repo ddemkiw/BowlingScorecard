@@ -9,7 +9,7 @@ describe('Game', function(){
   describe('to start', function(){
 
     it('should have a score of 0', function(){
-      expect(game.totalScore).toEqual(0);
+      expect(game.score()).toEqual(0);
     });
 
     it('should have empty rolls', function(){
